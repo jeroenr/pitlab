@@ -18,11 +18,10 @@ PITLAB_PORT=3000 pitlab path/to/config.json
 To run as a service, place the provided upstart script **pitlab.conf** in /etc/init/pitlab.conf
 
 3. **Configure Pivotal Tracker Project**  
-Edit the project you wish to integrate -> Settings -> Hooks  
-Fill in the form as follows  
+Go to the project you wish to integrate -> Settings -> Hooks -> Web Hooks 
+Add the following web hook  
   * **Web Hook URL** url to interact with PitLab, of the form `http://<host>:3000/storyupdate`
       * **host** is the publicly available location pitlab is deployed
-  * **API Version** v3
 
 ### Configuration
 PitLab expects a JSON configuration file when initiated from the command line.  The configuration has the following properties:  
