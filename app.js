@@ -29,6 +29,6 @@ module.exports = function (config) {
     var server = http.createServer(app);
     server.listen(app.get('port'), function () {
         log.info('PitLab started on port', app.get('port'));
-        log.info('Ensure your PivotalTracker projects are pointed at PitLab');
+        log.info('Ensure your Gitlab projects are pointed at PitLab');
     });
 };
