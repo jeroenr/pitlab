@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/swhite24/pitlab.git"
+    "url": "git://github.com/jeroenr/pitlab"
   },
   "keywords": [
     "gitlab",
@@ -31,7 +31,9 @@
     "request": "~2.22.0",
     "commander": "~1.3.0",
     "book": "~1.3.0",
-    "lru-cache": "~2.3.0"
+    "lru-cache": "~2.3.0",
+    "needle": "~0.5.9",
+    "underscore": "~1.5.2"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",

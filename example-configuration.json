@@ -1,8 +1,4 @@
 {
-    "gitlab_url": "mygitlab.com",
-    "gitlab_token": "abcd1234",
-    "close_on_state": ["accepted"],
-    "create_on_type": ["feature","bug"],
-    "create_on_state": ["rejected"],
-    "post_comments": true
+    "pivotal_url": "http://www.pivotaltracker.com/services/v3/source_commits",
+    "pivotal_token": "abcd1234"
 }

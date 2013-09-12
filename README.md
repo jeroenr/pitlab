@@ -1,6 +1,6 @@
 ## PitLab
 
-Allows integration of [PivotalTracker](http://pivotaltracker.com/) story additions, updates, and comments into [GitLab](https://github.com/gitlabhq/gitlabhq) issues.  
+Post receive web hook for [GitLab](https://github.com/gitlabhq/gitlabhq) to update issues in [PivotalTracker](http://pivotaltracker.com/).  
 
 PitLab does not require or provide an external tool integration to import stories into PivotalTracker from GitLab.  The issues created / updated by PitLab are identified using tags.
 
@@ -15,34 +15,25 @@ npm install -g pitlab
 ```
 PITLAB_PORT=3000 pitlab path/to/config.json
 ```
+To run as a service, place the provided upstart script **pitlab.conf** in /etc/init/pitlab.conf
 
 3. **Configure Pivotal Tracker Project**  
-Go to the project you wish to integrate -> Settings -> Integrations -> Activity Web Hook  
+Edit the project you wish to integrate -> Settings -> Hooks  
 Fill in the form as follows  
-  * **Web Hook URL** url to interact with PitLab, of the form `http://<host>:3000/storyupdate/<repo_path`
+  * **Web Hook URL** url to interact with PitLab, of the form `http://<host>:3000/storyupdate`
       * **host** is the publicly available location pitlab is deployed
-      * **repo_path** is the gitlab path to the project to integrate with, including the group (e.g. \<group>/\<project>)
   * **API Version** v3
 
 ### Configuration
 PitLab expects a JSON configuration file when initiated from the command line.  The configuration has the following properties:  
-* **gitlab_url**: [Required] base URL of GitLab installation
-* **gitlab_token**: [Required] usable API token within GitLab (found within your user profile on GitLab)
-  * Note that the provided token must have access to each GitLab projected intended to be integrated with PivotalTracker.  It is recommended to create a "dummy" user with necessary privileges on each project to integrate and use its API token.
-* **close_on_state**: [Optional] Array of story states indicating an issue needs to be closed.  States must be one of `started`, `finished`, `delivered`, `rejected`, `accepted`.
-* **create_on_state**: [Optional] Array of story states indicating an issue needs to be created.  States must be one of `started`, `finished`, `delivered`, `rejected`, `accepted`.
-* **create_on_type**: [Optional] Array of story types indicating an issue needs to be created, after the story is created within PivotalTracker.  Types must be one of `feature`, `bug`, `chore`, `release`.
-* **post_comments**: [Optional] Boolean indicating whether to post comments from a story to a linked issue.
+* **pivotal_url**: [Required] URL of Pivotal service
+* **pivotal_token**: [Required] usable API token within Pivotal
 
 Example configuration:
 ```json
 {
-    "gitlab_url": "mygitlab.com",
-    "gitlab_token": "abcd1234",
-    "close_on_state": ["accepted"],
-    "create_on_type": ["feature","bug"],
-    "create_on_state": ["rejected"],
-    "post_comments": true
+    "pivotal_url": "http://www.pivotaltracker.com/services/v3/source_commits",
+    "pivotal_token": "abcd1234"
 }
 ```
 
