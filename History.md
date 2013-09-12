@@ -1,4 +1,3 @@
-
 v0.1.0 / 2013-07-12 
 ==================
 
@@ -6,7 +5,7 @@ v0.1.0 / 2013-07-12
  * Fix story creating issue
  * First version
 
- v0.2.0 / 2013-09-12
- ==================
+v0.2.0 / 2013-09-12
+==================
 
- * Simplified and make it update Pivotal rather than Gitlab
+* Simplified and make it update Pivotal rather than Gitlab
